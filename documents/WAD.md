@@ -36,6 +36,7 @@ Opção escolhida: 2
 
 &nbsp;&nbsp;&nbsp;&nbsp;Aqui seguem as personas pro projeto KeepRoom:
 
+<div align="center">
 <sub align="center">Figura 1 - Primeira persona desenvolvida.</sub>
 </div>
 <div align="center">
@@ -47,7 +48,58 @@ Opção escolhida: 2
 
 ### 2.2. User Stories (Semana 01)
 
-*Posicione aqui a lista de User Stories levantadas para o projeto. Siga o template de User Stories e utilize a referência USXX para numeração (US01, US02, US03, ...). Indique todas as User Stories mapeadas, mesmo aquelas que não forem implementadas ao longo do projeto. Não se esqueça de explicar o INVEST de 1 User Storie prioritária.*
+&nbsp;&nbsp;&nbsp;&nbsp;As user stories, ou histórias do usuário em tradução direta, servem para capturar as necessidades reais dos usuários do sistema e ajudam os desenvolvedores a entender claramente o que precisa ser construido.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Aqui seguem as user stories do projeto KeepRoom:
+- 1. Como usuário, quero visualizar a disponibilidade das salas em tempo real, para que eu possa escolher o melhor horário para minha necessidade;
+
+- 2. Como usuário, quero receber uma confirmação do meu agendamento, para ter segurança de que a reserva foi concluída corretamente;
+
+- 3. Como administrador, quero configurar regras de agendamento, como limite de uso, para garantir uma utilização organizada dos espaços.
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;Além disso, para garantir a usabilidade das user stories, aplica-se os critérios INVEST. Eles são um conjunto de boas práticas que ajudam a garantir que uma user story seja bem escrita e realmente útil para o projeto. Cada letra de INVEST representa uma característica que a história deve ter:
+
+- I – Independent (Independente):
+A user story deve ser o mais independente possível das outras. Assim, ela pode ser desenvolvida, testada e entregue separadamente.
+
+- N – Negotiable (Negociável):
+A história é um convite à conversa, não um contrato fixo. Ela pode (e deve) ser discutida e ajustada conforme o time entender melhor a necessidade.
+
+- V – Valuable (Valiosa):
+A história deve gerar valor para o usuário ou para o negócio. Se não traz benefício real, provavelmente não vale a pena ser implementada.
+
+- E – Estimable (Estimável):
+A equipe precisa ser capaz de estimar o esforço necessário para implementar a história. Se ela for muito vaga ou complexa, precisa ser refinada.
+
+- S – Small (Pequena):
+A user story deve ser pequena o suficiente para ser concluída dentro de um sprint (ou em poucos dias, dependendo da metodologia). Se for muito grande, é melhor quebrar em histórias menores.
+
+- T – Testable (Testável):
+Deve ser possível escrever testes para validar se a história foi concluída corretamente. Se não der para testar, ela está mal definida.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Análises invest das user stories:
+
+<div align="center">
+<sub align="center">Figura 1 - Primeira persona desenvolvida.</sub>
+</div>
+<div align="center">
+
+| Critério | Atende ao critério? | Motivo |
+|:---------|:--------------------|:-------|
+|  **User story 01:** | 
+| Independent (Independente) | ✅ | A funcionalidade de visualizar disponibilidade pode ser desenvolvida separadamente de outras funcionalidades como reserva ou cancelamento. |
+| Negotiable (Negociável) | ✅ | A maneira como a disponibilidade será exibida pode ser discutida e adaptada conforme necessário. |
+| Valuable (Valiosa) | ✅ | Traz valor direto ao usuário, permitindo escolher melhor o horário de uso das salas. |
+| Estimable (Estimável) | ✅ | É possível estimar o esforço para implementar a visualização em tempo real da disponibilidade. |
+| Small (Pequena) | ✅ | A história é focada em uma única ação simples: visualizar informações, sem envolver multiplas ações. |
+| Testable (Testável) | ✅ | Pode ser testada verificando se as salas disponíveis são exibidas corretamente e se as atualizações acontecem em tempo real. |
+
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+ 
+     
 
 ---
 
