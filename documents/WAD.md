@@ -37,7 +37,7 @@ Opção escolhida: 2
 &nbsp;&nbsp;&nbsp;&nbsp;Aqui seguem as personas pro projeto KeepRoom:
 
 <div align="center">
-<sub align="center">Figura 1 - Primeira persona desenvolvida.</sub>
+<sub align="center">Figura 01 - Primeira persona desenvolvida.</sub>
 </div>
 <div align="center">
 <img src="/assets/wad/persona01.png" alt="Persona01 - Imagem" border="0" width=90% height=90%>
@@ -80,7 +80,7 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 &nbsp;&nbsp;&nbsp;&nbsp;Análises invest das user stories:
 
 <div align="center">
-<sub align="center">Figura 1 - Primeira persona desenvolvida.</sub>
+<sub align="center">Quadro 01 - Quadro de análises INVEST.</sub>
 </div>
 <div align="center">
 
