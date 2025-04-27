@@ -2,9 +2,9 @@
 
 **_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final._**
 
-## Nome do Projeto
+## KeepRoom
 
-#### Autor do projeto
+#### Carlos Icaro Kauã Coelho Paiva
 
 ## Sumário
 
@@ -18,8 +18,13 @@
 
 ## <a name="c1"></a>1. Introdução (Semana 01)
 
-*Preencha com até 300 palavras – sem necessidade de fonte.*
-*Descreva brevemente o sistema que você irá desenvolver.*
+Opção escolhida: 2
+
+&nbsp;&nbsp;&nbsp;&nbsp;O projeto KeepRoom surgiu da necessidade de otimizar o uso de espaços compartilhados em instituições e organizações que lidam com um grande número de discentes e colaboradores. Essa demanda evidencia a importância de um sistema eficiente para a reserva desses espaços de maneira sistemática, controlada e sincronizada.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Para atender a essa necessidade, o KeepRoom propõe uma solução web completa, com banco de dados, backend e frontend totalmente integrados, visando transformar e organizar a dinâmica de utilização desses ambientes.
+
+&nbsp;&nbsp;&nbsp;&nbsp;Este documento apresenta os principais componentes envolvidos no desenvolvimento do projeto, desde sua concepção até os aspectos técnicos e estratégicos.
 
 ---
 
@@ -27,7 +32,18 @@
 
 ### 2.1. Personas (Semana 01)
 
-*Posicione aqui sua(s) Persona(s) em forma de texto markdown com imagens, ou como imagem de template preenchido. Atualize esta seção ao longo do módulo se necessário.*
+&nbsp;&nbsp;&nbsp;&nbsp;A criação de personas é parte fundamental na elaboração de um projeto web. Elas se caracterizam como usuários fictícios que se assemelham com os possíveis reais usuários do projeto. Sua importância advém da sua capacidade de produzir empatia e gerar conhecimento do usuário final o que nos possibilita afunilar o desenvolvimento do projeto de forma precisa e eficaz. Dessa forma, conseguimos quebrar o paradigma de desenvolver para "qualquer usuário". 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Aqui seguem as personas pro projeto KeepRoom:
+
+<sub align="center">Figura 1 - Primeira persona desenvolvida.</sub>
+</div>
+<div align="center">
+<img src="/assets/wad/persona01.png" alt="Persona01 - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
 
 ### 2.2. User Stories (Semana 01)
 
