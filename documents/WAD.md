@@ -145,7 +145,31 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 
 ### 3.3. Wireframes (Semana 03)
 
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
+&nbsp;&nbsp;&nbsp;&nbsp;Wireframes são representações visuais simples das telas de um sistema, como se fossem o rascunho de uma interface. Eles ajudam a planejar a estrutura, a navegação e os elementos principais de cada página antes do desenvolvimento.
+
+&nbsp;&nbsp;&nbsp;&nbsp;No projeto KeepRoom, os wireframes foram importantes para organizar as ideias, alinhar a produção a partir das user stories e guiar a construção da interface de forma clara e objetiva. Abaixo segue o wireframe do projeto.
+
+<div align="center">
+<sub align="center">Figura 04 - Tela de login.</sub>
+</div>
+<div align="center">
+<img src="/assets/wireframe/Login page.png" alt="Tela de login - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;De forma a alinhar a produção da aplicação com as user stories do projeto, a página de tela de agendamento de sala mostra a disponibilidade das salas em tempo real.
+
+<div align="center">
+<sub align="center">Figura 05 - Tela de agendamento de sala.</sub>
+</div>
+<div align="center">
+<img src="/assets/wireframe/Agendamento de sala.png" alt="Tela de agendamento de sala - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
 
 ### 3.4. Guia de estilos (Semana 05)
 
