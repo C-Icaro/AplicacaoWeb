@@ -171,6 +171,8 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 <sup>Fonte: Carlos Icaro, 2025.</sup>
 </div>
 
+Link para a visualização do Wireframe no Figma: https://www.figma.com/design/93FnfG1SPiijlc1V5ALbWN/KeepRoom?node-id=0-1
+
 ### 3.4. Guia de estilos (Semana 05)
 
 *Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
