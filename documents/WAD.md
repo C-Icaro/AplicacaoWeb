@@ -107,9 +107,27 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
+&nbsp;&nbsp;&nbsp;&nbsp;Um banco de dados é uma estrutura que permite armazenar, organizar e acessar as informações usadas pelo sistema, como, no caso do projeto KeepRoom, dados de usuários, reservas e salas. Abaixo segue o diagrama do banco de dados e o código SQL para a sua criação no DBDriagram.
 
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+<div align="center">
+<sub align="center">Figura 02 - Diagrama do banco de dados.</sub>
+</div>
+<div align="center">
+<img src="/assets/modelo-banco.jpg" alt="Banco de dados - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+<div align="center">
+<sub align="center">Figura 03 - Código SQL do diagrama do banco de dados.</sub>
+</div>
+<div align="center">
+<img src="/assets/modelo-banco-SQL.jpg" alt="Código banco de dados - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
