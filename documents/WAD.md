@@ -214,6 +214,7 @@ Link para a visualização do Wireframe no Figma: https://www.figma.com/design/9
 <sup>Fonte: Carlos Icaro, 2025.</sup>
 </div>
 
+&nbsp;&nbsp;&nbsp;&nbsp;Para conferir o fluxo de navegação básica do projeto, verifique o figma pelo link: https://www.figma.com/design/93FnfG1SPiijlc1V5ALbWN/KeepRoom?node-id=15-117
 
 
 
