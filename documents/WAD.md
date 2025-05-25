@@ -175,12 +175,47 @@ Link para a visualização do Wireframe no Figma: https://www.figma.com/design/9
 
 ### 3.4. Guia de estilos (Semana 05)
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
+&nbsp;&nbsp;&nbsp;&nbsp;O guia de estilos define cores, fontes, ícones e elementos visuais usados na interface. Ele garante consistência visual, facilita a comunicação da identidade do projeto e ajuda no desenvolvimento, mantendo a aparência do sistema organizada e padronizada em todas as páginas do KeepRoom. Abaixo segue o guia de estilos do projeto.
+
+<div align="center">
+<sub align="center">Figura 06 - Guia de estilos.</sub>
+</div>
+<div align="center">
+<img src="/assets/MiniGuiadeEstilos.png" alt="Guia de estilos - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
 
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
+&nbsp;&nbsp;&nbsp;&nbsp;O protótipo de alta fidelidade é a evolução do wireframe de baixa fidelidade após validação. Ele mostra em detalhes como o sistema vai parecer quando estiver pronto. Ele inclui cores, imagens e todos os detalhes visuais, ajudando a visualizar a experiência do usuário e validar o design antes do desenvolvimento final. Abaixo segue o protótipo de alta fidelidade da tela de login e agendamento.
+
+<div align="center">
+<sub align="center">Figura 07 - Tela de login em alta fidelidade.</sub>
+</div>
+<div align="center">
+<img src="/assets/prototipoAltaFidelidade/LoginAF.png" alt=" Tela de login em alta fidelidade - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Em relação ao wireframe a tela de agendamento sofreu mudanças. Fora adicionado o campo "Meus agendamentos" para dar feedback visual ao usuário sobre os agendamentos realizados de sua autoria. Além disso, também foi retirado o tópico "Descrição" das salas, visto sua pouca serventia. No mais os outros elementos fundamentais da página foram mantidos.
+
+<div align="center">
+<sub align="center">Figura 08 - Tela de agendamento de salas em alta fidelidade.</sub>
+</div>
+<div align="center">
+<img src="/assets/prototipoAltaFidelidade/AgendamentoDeSalaAF.png" alt="Tela de agendamento de salas em alta fidelidade - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+
+
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
