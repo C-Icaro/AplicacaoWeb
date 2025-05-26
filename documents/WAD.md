@@ -55,7 +55,7 @@ Opção escolhida: 2
 
 - 2. Como usuário, quero receber uma confirmação do meu agendamento, para ter segurança de que a reserva foi concluída corretamente;
 
-- 3. Como administrador, quero configurar regras de agendamento, como limite de uso, para garantir uma utilização organizada dos espaços.
+- 3. Como administrador, quero configurar regras de agendamento, como limite de uso, para garantir uma utilização organizada dos espaços.
  
 &nbsp;&nbsp;&nbsp;&nbsp;Além disso, para garantir a usabilidade das user stories, aplica-se os critérios INVEST. Eles são um conjunto de boas práticas que ajudam a garantir que uma user story seja bem escrita e realmente útil para o projeto. Cada letra de INVEST representa uma característica que a história deve ter:
 
@@ -134,14 +134,35 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 
 ### 3.2. Arquitetura (Semana 5)
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+A arquitetura da aplicação KeepRoom segue o padrão **MVC (Model-View-Controller)**, que separa as responsabilidades em três camadas principais:
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+- **Model:** Responsável pela lógica de acesso e manipulação dos dados, interagindo diretamente com o banco de dados PostgreSQL. No projeto, isso está representado pelo arquivo `models/TarefaModel.js`, que executa as operações CRUD na tabela `tarefas`.
+- **Controller:** Responsável por receber as requisições HTTP, processar as ações, validar dados e acionar os métodos do Model. No projeto, está representado pelo arquivo `controllers/TarefaController.js`.
+- **View:** Responsável pela interface com o usuário. No contexto de uma API, a View é representada pelas respostas JSON enviadas ao cliente (por exemplo, ao listar tarefas ou retornar o resultado de uma operação).
+
+O fluxo de dados ocorre da seguinte forma:
+1. O usuário interage com o sistema através do cliente (navegador ou ferramenta como Postman).
+2. O cliente faz uma requisição HTTP para o servidor.
+3. O Controller recebe a requisição, valida os dados e chama o Model.
+4. O Model executa a operação no banco de dados e retorna o resultado ao Controller.
+5. O Controller formata a resposta e envia de volta ao cliente, que exibe ao usuário.
+
+<div align="center">
+<sub align="center">Figura 04 - Diagrama de arquitetura.</sub>
+</div>
+<div align="center">
+<img src="/assets/Diagrama de arquitetura.jpg" alt="Diagrama de arquitetura - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+**Explicação do fluxo:**
+- O usuário acessa o sistema pelo navegador (cliente).
+- O navegador faz requisições para as Views (endpoints da API).
+- As Views acionam os Controllers, que processam as ações.
+- Os Controllers usam os Models para acessar o banco de dados.
+- Os Models executam as operações no PostgreSQL e retornam os dados para o Controller, que responde ao cliente.
 
 ### 3.3. Wireframes (Semana 03)
 
