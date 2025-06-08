@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KeepRoom - Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Login Teste</h1>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>KeepRoom</h1>
+                <p>Sistema de Reserva de Salas</p>
+            </div>
+            
+            <form action="/login" method="POST" class="login-form">
+                <% if (locals.error) { %>
+                    <div class="error-message">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="seu.email@exemplo.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        placeholder="Digite sua senha"
+                    >
+                </div>
+
+                <button type="submit" class="login-button">Entrar</button>
+
+                <div class="form-footer">
+                    <a href="/forgot-password">Esqueceu a senha?</a>
+                    <a href="/register">Criar conta</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

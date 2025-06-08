@@ -7,6 +7,13 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Servindo arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Middleware para processar dados do formulário
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 const LoginRoutes = require('./routes/loginRoutes.js');
 
 app.use('/', LoginRoutes);
