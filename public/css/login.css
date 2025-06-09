@@ -182,4 +182,20 @@ h4 {
         gap: 0.5rem;
         align-items: center;
     }
+}
+
+.login-info-card {
+    background: #e9eef3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    color: #28324E;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(40,50,78,0.04);
+    text-align: left;
+}
+.info-email, .info-senha {
+    font-family: 'Instrument Sans', monospace;
+    color: #21619C;
+    font-weight: 600;
 } 

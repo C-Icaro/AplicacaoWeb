@@ -37,22 +37,24 @@
         </form>
 
         <% if (salas && salas.length > 0) { %>
-            <section>
-                <h3>Salas disponíveis:</h3>
-                <ul>
+            <section class="salas-disponiveis">
                 <% salas.forEach(sala => { %>
-                    <li>
-                        <%= sala.name %>
-                        <form action="/dashboard/book" method="POST" style="display:inline;">
+                    <div class="sala-card">
+                        <div class="sala-info">
+                            <span class="sala-nome"><span class="icon">🏠</span> <span class="sala-nome-text"><%= sala.name %></span></span>
+                            <span class="sala-capacidade"><span class="icon">👥</span> Até <%= sala.capacity %> pessoas</span>
+                            <span class="sala-localizacao"><span class="icon">📍</span> <%= sala.location %></span>
+                            <span class="sala-status"><span class="icon">🗓️</span> <%= sala.status %></span>
+                        </div>
+                        <form action="/dashboard/book" method="POST">
                             <input type="hidden" name="room_id" value="<%= sala.id %>">
                             <input type="hidden" name="date" value="<%= search.date %>">
                             <input type="hidden" name="start" value="<%= search.start %>">
-                            <input type="hidden" name="end" value="<%= search.end %>">
-                            <button type="submit">Agendar</button>
+                            <input type="hidden" name="duration" value="<%= search.duration %>">
+                            <button type="submit" class="agendar-btn">Agendar</button>
                         </form>
-                    </li>
+                    </div>
                 <% }) %>
-                </ul>
             </section>
         <% } %>
 
@@ -60,13 +62,28 @@
             <span class="my-bookings-title">Meus agendamentos:</span>
             <div class="my-bookings-list">
                 <% if (reservas && reservas.length > 0) { %>
-                    <ul>
+                    <div class="agendamento-cards">
                     <% reservas.forEach(r => { %>
-                        <li>
-                            Sala: <%= r.room_name %> | Início: <%= r.check_in.toLocaleString ? r.check_in.toLocaleString() : r.check_in %> | Fim: <%= r.check_out.toLocaleString ? r.check_out.toLocaleString() : r.check_out %>
-                        </li>
+                        <div class="agendamento-card">
+                            <div class="agendamento-info">
+                                <div class="agendamento-sala"><span class="icon">🏠</span> <%= r.room_name %></div>
+                                <div class="agendamento-horario">
+                                    <span class="icon">🕒</span>
+                                    <span>
+                                        <strong>
+                                            <%= (typeof r.check_in === 'string' ? r.check_in.slice(0, 10) : r.check_in.toLocaleDateString ? r.check_in.toLocaleDateString() : r.check_in) %>
+                                        </strong>
+                                        ,
+                                        <%= (typeof r.check_in === 'string' ? r.check_in.slice(11, 16) : r.check_in.toLocaleTimeString ? r.check_in.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : r.check_in) %>
+                                        -
+                                        <%= (typeof r.check_out === 'string' ? r.check_out.slice(11, 16) : r.check_out.toLocaleTimeString ? r.check_out.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : r.check_out) %>
+                                    </span>
+                                </div>
+                            </div>
+                            <!-- Botão de cancelamento removido temporariamente -->
+                        </div>
                     <% }) %>
-                    </ul>
+                    </div>
                 <% } else { %>
                     <span>Nenhum agendamento encontrado.</span>
                 <% } %>
