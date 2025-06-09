@@ -21,7 +21,7 @@ const loginController = {
                 return res.render('login', { error: 'E-mail ou senha incorretos' });
             }
             // Autenticação bem-sucedida
-            // Aqui você pode criar uma sessão, token, etc.
+            req.session.userId = user.id;
             res.redirect('/dashboard');
         } catch (error) {
             res.render('login', { error: 'Erro ao fazer login. Tente novamente.' });
@@ -60,8 +60,9 @@ const loginController = {
 
     // Processa o logout
     logout: (req, res) => {
-        // TODO: Implementar a lógica de logout
-        res.redirect('/login');
+        req.session.destroy(() => {
+            res.redirect('/login');
+        });
     }
 };
 
