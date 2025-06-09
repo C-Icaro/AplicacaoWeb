@@ -40,3 +40,8 @@ CREATE TABLE IF NOT EXISTS rooms (
     location VARCHAR(100) NOT NULL,
     status VARCHAR(20) DEFAULT 'disponivel'
 );
+
+-- Alterar check_in e check_out para timestamp
+ALTER TABLE reservations
+    ALTER COLUMN check_in TYPE timestamp USING check_in::timestamp,
+    ALTER COLUMN check_out TYPE timestamp USING check_out::timestamp;
