@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeepRoom - Login</title>
+    <title>KeepRoom - Criar Conta</title>
     <link rel="stylesheet" href="/css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,14 +12,24 @@
         <div class="login-container">
             <div class="login-header">
                 <h1>KeepRoom</h1>
-                <p>Faça login na sua conta</p>
+                <p>Crie sua conta</p>
             </div>
-            <form action="/login" method="POST" class="login-form">
+            <form action="/register" method="POST" class="login-form">
                 <% if (locals.error) { %>
                     <div class="error-message">
                         <%= error %>
                     </div>
                 <% } %>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="Seu nome completo"
+                    >
+                </div>
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input 
@@ -37,16 +47,25 @@
                         id="password" 
                         name="password" 
                         required 
-                        placeholder="Digite sua senha"
+                        placeholder="Crie uma senha"
                     >
                 </div>
-                <button type="submit" class="login-button">Entrar</button>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        required 
+                        placeholder="Repita a senha"
+                    >
+                </div>
+                <button type="submit" class="login-button">Criar conta</button>
                 <div class="form-footer">
-                    <a href="/forgot-password">Esqueceu a senha?</a>
-                    <a href="/register">Criar conta</a>
+                    <a href="/login">Já tem conta? Entrar</a>
                 </div>
             </form>
         </div>
     </div>
 </body>
-</html>
+</html> 
