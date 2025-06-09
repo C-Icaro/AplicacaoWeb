@@ -241,11 +241,79 @@ Link para a visualização do Wireframe no Figma: https://www.figma.com/design/9
 
 ### 3.6. WebAPI e endpoints (Semana 05)
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+&nbsp;&nbsp;&nbsp;&nbsp;A API do KeepRoom foi desenvolvida utilizando Node.js com Express, seguindo o padrão REST. A aplicação implementa autenticação de usuários e possui endpoints para gerenciamento de salas e reservas. Abaixo está a documentação completa dos endpoints disponíveis:
+
+#### Autenticação e Usuários
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| GET | `/login` | Renderiza a página de login | Não |
+| POST | `/login` | Processa o login do usuário | Não |
+| GET | `/logout` | Realiza o logout do usuário | Sim |
+| GET | `/register` | Renderiza a página de cadastro | Não |
+
+#### Dashboard e Reservas
+
+| Método | Endpoint | Descrição | Autenticação |
+|--------|----------|-----------|--------------|
+| GET | `/dashboard` | Renderiza o dashboard com salas e reservas do usuário | Sim |
+| POST | `/dashboard/search` | Busca salas disponíveis para um período específico | Sim |
+| POST | `/dashboard/book` | Realiza o agendamento de uma sala | Sim |
+| POST | `/dashboard/cancel` | Cancela uma reserva existente | Sim |
+
+#### Detalhes dos Endpoints
+
+**Busca de Salas Disponíveis (`POST /dashboard/search`)**
+- **Parâmetros:**
+  - `date`: Data desejada (formato: YYYY-MM-DD)
+  - `start`: Horário de início (formato: HH:mm)
+  - `duration`: Duração em horas
+- **Resposta:** Lista de salas disponíveis no período especificado
+
+**Agendamento de Sala (`POST /dashboard/book`)**
+- **Parâmetros:**
+  - `room_id`: ID da sala
+  - `date`: Data do agendamento
+  - `start`: Horário de início
+  - `duration`: Duração em horas
+- **Resposta:** Redirecionamento para o dashboard com a nova reserva
+
+**Cancelamento de Reserva (`POST /dashboard/cancel`)**
+- **Parâmetros:**
+  - `id`: ID da reserva a ser cancelada
+- **Resposta:** Redirecionamento para o dashboard após o cancelamento
+
+&nbsp;&nbsp;&nbsp;&nbsp;Todos os endpoints que requerem autenticação utilizam um middleware de autenticação (`auth`) que verifica a sessão do usuário antes de permitir o acesso. As respostas são formatadas em JSON para endpoints de API e em HTML para endpoints que renderizam páginas.
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+&nbsp;&nbsp;&nbsp;&nbsp;A interface do sistema foi implementada buscando seguir fielmente o guia de estilos e o protótipo de alta fidelidade desenvolvidos anteriormente. O sistema conta com duas telas principais: login e agendamento de salas. Cada tela foi desenvolvida com foco na usabilidade e experiência do usuário, mantendo a consistência visual em toda a aplicação.
+
+&nbsp;&nbsp;&nbsp;&nbsp;A tela de login apresenta um formulário simples e intuitivo, com campos para email e senha, além de um botão de acesso que direciona o usuário para a área principal do sistema após a autenticação bem-sucedida.
+
+<div align="center">
+<sub align="center">Figura 09 - Tela de login implementada.</sub>
+</div>
+<div align="center">
+<img src="/assets/wad/telaLoginSemiFinal.png" alt="Tela de login implementada - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;A tela de agendamento de salas é o coração do sistema, onde os usuários podem visualizar a disponibilidade das salas em tempo real e realizar suas reservas. A interface apresenta uma grade de horários e salas, com indicadores visuais claros para mostrar os períodos disponíveis e ocupados. Além disso, foi implementada uma seção "Meus Agendamentos" que permite ao usuário gerenciar suas reservas ativas.
+
+<div align="center">
+<sub align="center">Figura 10 - Tela de agendamento de salas implementada.</sub>
+</div>
+<div align="center">
+<img src="/assets/wad/telaReservaSemiFinal.png" alt="Tela de agendamento de salas implementada - Imagem" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;A navegação entre as telas foi implementada de forma fluida para gerenciar as rotas da aplicação. O sistema também inclui validações de formulários, feedback visual para ações do usuário e tratamento de erros, garantindo uma boa experiência de uso.
 
 ---
 
