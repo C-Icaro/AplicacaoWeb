@@ -1,0 +1,105 @@
+body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    color: #28324E;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px 24px 32px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(40,50,78,0.04);
+}
+
+.menu-icon {
+    font-size: 2rem;
+    color: #28324E;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #28324E;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search {
+    border: 1px solid #21619C;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    background: #f3f4f6;
+    color: #21619C;
+}
+
+.icon-bell {
+    font-size: 1.5rem;
+    color: #28324E;
+}
+
+main {
+    padding: 48px 64px 0 64px;
+}
+
+.search-form {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.search-form input[type='date'],
+.search-form input[type='time'] {
+    background: #e9eef3;
+    border: 1px solid #21619C;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 1.1rem;
+    color: #21619C;
+    min-width: 200px;
+}
+
+.search-btn {
+    background: linear-gradient(to bottom, #21619C, #28324E);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.search-btn:hover {
+    opacity: 0.9;
+}
+
+.my-bookings {
+    background: #e9eef3;
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 48px;
+}
+
+.my-bookings-title {
+    color: #F7941D;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.my-bookings-list {
+    margin-top: 16px;
+} 

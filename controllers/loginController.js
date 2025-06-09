@@ -15,6 +15,7 @@ const loginController = {
     login: async (req, res) => {
         const { email, password } = req.body;
         try {
+            // Busca o usuário no banco de dados pelo email
             const user = await User.findByEmail(email);
             if (!user || user.password !== password) {
                 return res.render('login', { error: 'E-mail ou senha incorretos' });

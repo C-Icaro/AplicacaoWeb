@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Salas</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="menu-icon">&#9776;</div>
+        <span class="logo">Inteli - Agendamento de salinha</span>
+        <div class="header-right">
+            <input type="text" class="search" placeholder="Pesquisa">
+            <span class="icon-bell">&#128276;</span>
+        </div>
+    </header>
+    <main>
+        <form class="search-form" action="/dashboard/search" method="POST">
+            <input type="date" name="date" value="<%= search.date || '' %>" required>
+            <select name="start" required>
+                <% for (let h = 0; h < 24; h++) { for (let m = 0; m < 60; m += 30) { 
+                    let val = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+                %>
+                    <option value="<%= val %>" <%= search.start === val ? 'selected' : '' %>><%= val %></option>
+                <% }} %>
+            </select>
+            <select name="duration" required>
+                <option value="1" <%= search.duration == 1 ? 'selected' : '' %>>1 hora</option>
+                <option value="2" <%= search.duration == 2 ? 'selected' : '' %>>2 horas</option>
+            </select>
+            <button type="submit" class="search-btn">Buscar</button>
+        </form>
+
+        <% if (salas && salas.length > 0) { %>
+            <section>
+                <h3>Salas disponíveis:</h3>
+                <ul>
+                <% salas.forEach(sala => { %>
+                    <li>
+                        <%= sala.name %>
+                        <form action="/dashboard/book" method="POST" style="display:inline;">
+                            <input type="hidden" name="room_id" value="<%= sala.id %>">
+                            <input type="hidden" name="date" value="<%= search.date %>">
+                            <input type="hidden" name="start" value="<%= search.start %>">
+                            <input type="hidden" name="end" value="<%= search.end %>">
+                            <button type="submit">Agendar</button>
+                        </form>
+                    </li>
+                <% }) %>
+                </ul>
+            </section>
+        <% } %>
+
+        <section class="my-bookings">
+            <span class="my-bookings-title">Meus agendamentos:</span>
+            <div class="my-bookings-list">
+                <% if (reservas && reservas.length > 0) { %>
+                    <ul>
+                    <% reservas.forEach(r => { %>
+                        <li>
+                            Sala: <%= r.room_name %> | Início: <%= r.check_in.toLocaleString ? r.check_in.toLocaleString() : r.check_in %> | Fim: <%= r.check_out.toLocaleString ? r.check_out.toLocaleString() : r.check_out %>
+                        </li>
+                    <% }) %>
+                    </ul>
+                <% } else { %>
+                    <span>Nenhum agendamento encontrado.</span>
+                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

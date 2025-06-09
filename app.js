@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const session = require('express-session');
 
 // Configure EJS as the view engine and set views directory
 app.set('view engine', 'ejs');
@@ -14,9 +15,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(session({
+    secret: 'keepRoomSecret', // troque por uma string forte em produção
+    resave: false,
+    saveUninitialized: false
+}));
+
 const LoginRoutes = require('./routes/loginRoutes.js');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 app.use('/', LoginRoutes);
+app.use('/', dashboardRoutes);
 
 // Server initialization
 const PORT = process.env.PORT || 3000;
