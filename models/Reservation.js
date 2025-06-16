@@ -15,7 +15,18 @@ module.exports = {
             `SELECT r.*, ro.name as room_name
              FROM reservations r
              JOIN rooms ro ON r.room_id = ro.id
-             WHERE r.user_id = $1
+             WHERE r.user_id = $1 AND r.check_out > NOW()
+             ORDER BY r.check_in DESC`,
+            [user_id]
+        );
+        return result.rows;
+    },
+    async findPastByUser(user_id) {
+        const result = await pool.query(
+            `SELECT r.*, ro.name as room_name
+             FROM reservations r
+             JOIN rooms ro ON r.room_id = ro.id
+             WHERE r.user_id = $1 AND r.check_out <= NOW()
              ORDER BY r.check_in DESC`,
             [user_id]
         );
@@ -23,5 +34,12 @@ module.exports = {
     },
     async deleteById(id, user_id) {
         await pool.query('DELETE FROM reservations WHERE id = $1 AND user_id = $2', [id, user_id]);
+    },
+    async concludePastReservations(user_id) {
+        await pool.query(
+            `UPDATE reservations SET status = 'concluida'
+             WHERE user_id = $1 AND status != 'concluida'`,
+            [user_id]
+        );
     }
 }; 

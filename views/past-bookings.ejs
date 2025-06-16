@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos Passados - KeepRoom</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
+        <span class="logo">
+            <img src="/assets/logo-inteli.png" alt="Logo Inteli" class="logo-img">
+            Inteli - Agendamento de salinha
+        </span>
+        <div class="header-right">
+            <input type="text" class="search" placeholder="Pesquisa">
+            <span class="icon-bell">&#128276;</span>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu</span>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard" class="sidebar-item">
+                <span class="icon">📅</span>
+                Agendamentos Ativos
+            </a>
+            <a href="/past-bookings" class="sidebar-item active">
+                <span class="icon">📜</span>
+                Agendamentos Passados
+            </a>
+            <a href="/logout" class="sidebar-item">
+                <span class="icon">🚪</span>
+                Sair
+            </a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="my-bookings">
+            <span class="my-bookings-title">Agendamentos Passados</span>
+            <div class="my-bookings-list">
+                <% if (bookings && bookings.length > 0) { %>
+                    <div class="agendamento-cards">
+                        <% bookings.forEach(r => { %>
+                            <div class="agendamento-card">
+                                <div class="agendamento-info">
+                                    <div class="agendamento-sala"><span class="icon">🏠</span> <%= r.room_name %></div>
+                                    <div class="agendamento-horario">
+                                        <span class="icon">🕒</span>
+                                        <span>
+                                            <strong>
+                                                <%= (typeof r.check_in === 'string' ? r.check_in.slice(0, 10) : r.check_in.toLocaleDateString ? r.check_in.toLocaleDateString() : r.check_in) %>
+                                            </strong>
+                                            ,
+                                            <%= (typeof r.check_in === 'string' ? r.check_in.slice(11, 16) : r.check_in.toLocaleTimeString ? r.check_in.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : r.check_in) %>
+                                            -
+                                            <%= (typeof r.check_out === 'string' ? r.check_out.slice(11, 16) : r.check_out.toLocaleTimeString ? r.check_out.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : r.check_out) %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <span>Nenhum agendamento passado encontrado.</span>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuIcon = document.getElementById('menuIcon');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        if (menuIcon && sidebar && closeSidebar) {
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
+
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && !menuIcon.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html> 

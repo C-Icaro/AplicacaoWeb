@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="menu-icon">&#9776;</div>
+        <div class="menu-icon" id="menuIcon">&#9776;</div>
         <span class="logo">
             <img src="/assets/logo-inteli.png" alt="Logo Inteli" class="logo-img">
             Inteli - Agendamento de salinha
@@ -19,12 +19,42 @@
             <span class="icon-bell">&#128276;</span>
         </div>
     </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Menu</span>
+            <button class="close-sidebar" id="closeSidebar">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/dashboard" class="sidebar-item active">
+                <span class="icon">📅</span>
+                Agendamentos Ativos
+            </a>
+            <a href="/past-bookings" class="sidebar-item">
+                <span class="icon">📜</span>
+                Agendamentos Passados
+            </a>
+            <a href="/logout" class="sidebar-item">
+                <span class="icon">🚪</span>
+                Sair
+            </a>
+        </nav>
+    </div>
+
     <main>
+        <% if (error) { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% } %>
         <form class="search-form" action="/dashboard/search" method="POST">
             <input type="date" name="date" value="<%= search.date || '' %>" required>
             <select name="start" required>
-                <% for (let h = 0; h < 24; h++) { for (let m = 0; m < 60; m += 30) { 
+                <% for (let h = 7; h <= 20; h++) { for (let m = 0; m < 60; m += 30) { 
                     let val = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+                    // Skip times after 20:00
+                    if (h === 20 && m > 0) continue;
                 %>
                     <option value="<%= val %>" <%= search.start === val ? 'selected' : '' %>><%= val %></option>
                 <% }} %>
@@ -32,6 +62,8 @@
             <select name="duration" required>
                 <option value="1" <%= search.duration == 1 ? 'selected' : '' %>>1 hora</option>
                 <option value="2" <%= search.duration == 2 ? 'selected' : '' %>>2 horas</option>
+                <option value="3" <%= search.duration == 3 ? 'selected' : '' %>>3 horas</option>
+                <option value="4" <%= search.duration == 4 ? 'selected' : '' %>>4 horas</option>
             </select>
             <button type="submit" class="search-btn">Buscar</button>
         </form>
@@ -79,8 +111,11 @@
                                         <%= (typeof r.check_out === 'string' ? r.check_out.slice(11, 16) : r.check_out.toLocaleTimeString ? r.check_out.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : r.check_out) %>
                                     </span>
                                 </div>
+                                <div class="agendamento-status">
+                                    <span class="icon">📌</span>
+                                    <%= r.status %>
+                                </div>
                             </div>
-                            <!-- Botão de cancelamento removido temporariamente -->
                         </div>
                     <% }) %>
                     </div>
@@ -90,5 +125,30 @@
             </div>
         </section>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuIcon = document.getElementById('menuIcon');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        if (menuIcon && sidebar && closeSidebar) {
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.add('active');
+            });
+
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+
+            // Close sidebar when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && !menuIcon.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html> 
