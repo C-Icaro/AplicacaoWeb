@@ -45,3 +45,16 @@ CREATE TABLE IF NOT EXISTS rooms (
 ALTER TABLE reservations
     ALTER COLUMN check_in TYPE timestamp USING check_in::timestamp,
     ALTER COLUMN check_out TYPE timestamp USING check_out::timestamp;
+
+-- Inserir salas padrão
+INSERT INTO rooms (name, description, capacity, location, status) VALUES
+    ('R01', 'Salinha R01', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R02', 'Salinha R02', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R03', 'Salinha R03', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R04', 'Salinha R04', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R05', 'Salinha R05', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R06', 'Salinha R06', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R07', 'Salinha R07', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R10', 'Salinha R10', 5, 'Prédio 5 - Térreo', 'disponivel'),
+    ('R08', 'Salinha R08', 2, 'Prédio 5 - Mezanino 1', 'disponivel'),
+    ('R09', 'Salinha R09', 5, 'Prédio 5 - Mezanino 2', 'disponivel');

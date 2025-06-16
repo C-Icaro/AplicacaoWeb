@@ -51,20 +51,13 @@
         <form class="search-form" action="/dashboard/search" method="POST">
             <input type="date" name="date" value="<%= search.date || '' %>" required>
             <select name="start" required>
-                <% for (let h = 7; h <= 20; h++) { for (let m = 0; m < 60; m += 30) { 
-                    let val = (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-                    // Skip times after 20:00
-                    if (h === 20 && m > 0) continue;
+                <% for (let h = 7; h <= 20; h++) { 
+                    let val = (h < 10 ? '0' : '') + h + ':00';
                 %>
                     <option value="<%= val %>" <%= search.start === val ? 'selected' : '' %>><%= val %></option>
-                <% }} %>
+                <% } %>
             </select>
-            <select name="duration" required>
-                <option value="1" <%= search.duration == 1 ? 'selected' : '' %>>1 hora</option>
-                <option value="2" <%= search.duration == 2 ? 'selected' : '' %>>2 horas</option>
-                <option value="3" <%= search.duration == 3 ? 'selected' : '' %>>3 horas</option>
-                <option value="4" <%= search.duration == 4 ? 'selected' : '' %>>4 horas</option>
-            </select>
+            <input type="hidden" name="duration" value="1">
             <button type="submit" class="search-btn">Buscar</button>
         </form>
 
@@ -82,7 +75,7 @@
                             <input type="hidden" name="room_id" value="<%= sala.id %>">
                             <input type="hidden" name="date" value="<%= search.date %>">
                             <input type="hidden" name="start" value="<%= search.start %>">
-                            <input type="hidden" name="duration" value="<%= search.duration %>">
+                            <input type="hidden" name="duration" value="1">
                             <button type="submit" class="agendar-btn">Agendar</button>
                         </form>
                     </div>
