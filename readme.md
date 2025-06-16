@@ -61,9 +61,10 @@ AplicacaoWeb/
    cd AplicacaoWeb
    ```
 
-2. **Instale as dependências**
+2. **Instale as dependências e tabelas**
    ```bash
    npm install
+   npm run init-db
    ```
 
 3. **Inicie o servidor**

@@ -1,7 +1,5 @@
 # Web Application Document - Projeto Individual - Módulo 2 - Inteli
 
-**_Os trechos em itálico servem apenas como guia para o preenchimento da seção. Por esse motivo, não devem fazer parte da documentação final._**
-
 ## KeepRoom
 
 #### Carlos Icaro Kauã Coelho Paiva
@@ -130,7 +128,16 @@ Deve ser possível escrever testes para validar se a história foi concluída co
 </div>
 
 ### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
+
+O sistema KeepRoom utiliza um banco de dados relacional PostgreSQL para armazenar as informações essenciais do funcionamento da aplicação. Os principais models implementados no backend são:
+
+- **User (users):** Armazena os dados dos usuários do sistema, incluindo nome, email, senha (criptografada), papel (role) e data de criação.
+- **Room (rooms):** Representa as salas disponíveis para agendamento, com informações como nome, descrição, capacidade, localização e status.
+- **Reservation (reservations):** Registra os agendamentos realizados pelos usuários, relacionando o usuário, a sala, o horário de início e término, status do agendamento e data de criação.
+
+Esses models são implementados como tabelas no banco de dados e manipulados por meio de classes/modelos no backend Node.js, permitindo operações CRUD (criar, ler, atualizar, deletar) e garantindo a integridade dos dados.
+
+A modelagem foi pensada para garantir a flexibilidade e escalabilidade do sistema, permitindo a inclusão de novos tipos de usuários, salas ou regras de agendamento futuramente.
 
 ### 3.2. Arquitetura (Semana 5)
 
@@ -317,23 +324,66 @@ Link para a visualização do Wireframe no Figma: https://www.figma.com/design/9
 
 ---
 
-## <a name="c4"></a>4. Desenvolvimento da Aplicação Web (Semana 8)
+## <a name="c4"></a>4. Desenvolvimento da Aplicação Web
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+&nbsp;&nbsp;&nbsp;&nbsp;O sistema web desenvolvido é uma aplicação completa para gerenciamento de reservas de salas, implementada utilizando Node.js, Express.js e MySQL para o backend, e EJS como template engine para o frontend. A demonstração completa do sistema pode ser acessada através do seguinte link:
 
-### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
+[Vídeo de Demonstração do Sistema](https://youtu.be/7UTjAEZe2S0)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+&nbsp;&nbsp;&nbsp;&nbsp;O sistema implementado apresenta as seguintes funcionalidades principais:
+
+1. **Autenticação de Usuários**
+   - Login seguro com validação de credenciais
+   - Proteção de rotas através de middleware de autenticação
+   - Gerenciamento de sessões de usuário
+
+2. **Dashboard de Reservas**
+   - Visualização em grade das salas disponíveis
+   - Horários de funcionamento restritos (7:00 às 21:00)
+   - Reservas em incrementos de 1 hora
+   - Atualização automática do status das reservas (concluídas)
+
+3. **Gerenciamento de Reservas**
+   - Criação de novas reservas com validação de conflitos
+   - Cancelamento de reservas existentes
+   - Visualização de reservas ativas e históricas
+   - Interface intuitiva para seleção de data e horário
+
+4. **Banco de Dados**
+   - Modelagem relacional com MySQL
+   - Tabelas para usuários, salas e reservas
+   - Relacionamentos e integridade referencial
+   - Queries otimizadas para consultas frequentes
+
+<div align="center">
+<sub align="center">Figura 11 - Interface do Dashboard com Reservas Ativas.</sub>
+</div>
+<div align="center">
+<img src="/assets/wad/telaReservaSemiFinal.png" alt="Dashboard com Reservas Ativas" border="0" width=90% height=90%>
+</div>
+<div align="center">
+<sup>Fonte: Carlos Icaro, 2025.</sup>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;O sistema foi desenvolvido seguindo boas práticas de programação, incluindo:
+- Arquitetura MVC (Model-View-Controller)
+- Código modular e reutilizável
+- Tratamento de erros
+- Validações de dados
+- Interface responsiva e amigável
+- Documentação completa do código e da API
+
+&nbsp;&nbsp;&nbsp;&nbsp;A implementação final atende a todos os requisitos especificados inicialmente, oferecendo uma solução completa e eficiente para o gerenciamento de reservas de salas, com foco na usabilidade e experiência do usuário.
+
+### 4.2 Conclusões e Trabalhos Futuros
+
+&nbsp;&nbsp;&nbsp;&nbsp;Ao finalizar a aplicação se torna notória a melhoria no uso de ferramentas de desenvolvimento web, gestão de dados, tabelas e arquitetura MVC. Durante as 8 semanas de desenvolvimento do projeto essas ferramentas foram amplamente utilizadas e com isso foi garantida maior clareza quanto as suas funcionalidades e especificidades.
+&nbsp;&nbsp;&nbsp;&nbsp;Para melhorar o projeto os trabalhos futuros abordam a possibilidade de criação e redefinição de senha, além de um melhor fronEnd e da adição de um login administrador para tratamento de dados.
 
 
 
 ## <a name="c5"></a>5. Referências
 
-_Incluir as principais referências de seu projeto, para que seu parceiro possa consultar caso ele se interessar em aprofundar. Um exemplo de referência de livro e de site:_<br>
-
----
----
+Help Inteli. Disponível em: <https://help.inteli.edu.br/support/catalog/items?popular=true>. Acesso em: 11 mai. 2025.
